@@ -7,31 +7,51 @@ public class Main {
         toDoLister();
 
 
-
-
     }
 
     public static void toDoLister () {
-
-        System.out.println("Please enter your list of thing you have to-do");
-
+        String[] toDoStorage = new String[3];
         Scanner toDoInput = new Scanner(System.in);
-        String task1 = toDoInput.nextLine();
-        String task2 = toDoInput.nextLine();
-        System.out.println("Your tasks are;" + task1 + "," + task2 + ".");
+        int nullStopper = 0;
+
+        System.out.println("Please enter a thing you have to-do");
+
+        for (var i = 0; i < toDoStorage.length; i++){
+            nullStopper = nullStopper + 1;
+            System.out.println("looped");
+            toDoStorage[i] = toDoInput.nextLine();
+            System.out.println("Would you like to enter any more tasks? Enter \"yes\" or \"no\" if not.");
+            if (toDoInput.nextLine().equals("no")){
+                System.out.println("Your task(s) are to " + toDoStorage[i] + ".");
+                break;
+            }
+
+        }
+
+
+        System.out.println("All tasks below");
+        for (var i = 0; i < nullStopper; i++) {
+            System.out.println("-"+toDoStorage[i]);
+        }
+
 
 
     }
 
-    public static void inputReader() {
+   public static void reference (){
+    System.out.println("Please enter a thing you have to-do");
+    Scanner toDoInput = new Scanner(System.in);
+    String task1 = toDoInput.nextLine();
+        System.out.println("Would you like to enter any more tasks? Enter \"no\" if not.");
+    String task2 = toDoInput.nextLine();
+        if (task2.equals("no")) {
+        System.out.println("Your singular task is to " + task1 + ".");
 
-        System.out.printf("Please enter two integers to add.");
 
-
-        Scanner inputReader = new Scanner(System.in);
-        String name1 = inputReader.nextLine();
-        String name2 = inputReader.nextLine();
-        System.out.println((String) name2 + name1);
 
     }
+        else {
+        System.out.println("Your tasks are; " + task1 + ", " + task2 + ".");
+    }
+}
 }
